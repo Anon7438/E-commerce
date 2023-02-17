@@ -15,8 +15,20 @@ exports.registerUser = catchAsyncErr(async(req,res,next)=>{
             url:"profile_pic_url"
         }
     });
+
+    const token = user.getJWTToken();
     res.status(201).json({
         success:true,
-        user,
+        token,
     })
+})
+
+//Login user 
+exports.loginUser = catchAsyncErr(async(req,res,next)=>{
+
+
+    const {email , password} = req.body;
+
+
+
 })
